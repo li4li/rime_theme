@@ -15,8 +15,8 @@
 >
 > 注2：搜狗词库较大，重新部署时间会稍长，请耐心等待。
 
-##自定义设置
-###翻页
+## 自定义设置
+### 翻页
 示例：逗号` <`和句号` >`翻页。
 
 1. 打开 ` default.custom.yaml`，修改 `key_binder/bindings` 。
@@ -33,7 +33,7 @@
     - { when: paging, accept: comma, send: Page_Up }            # "<"上一页
     - { when: has_menu, accept: period, send: Page_Down }       # ">"下一页
 ```
-###皮肤
+### 皮肤
 示例：荧光` yingguang`皮肤。
 
 1. 打开 ` weasel.custom.yaml`，修改 `style/color_scheme` 后面的皮肤名为 `yingguang` 。
