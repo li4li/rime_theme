@@ -15,4 +15,49 @@
 >
 > 注2：搜狗词库较大，重新部署时间会稍长，请耐心等待。
 
-详细方案参考：[点击这里](https://github.com/maomiui/rime)
+##自定义设置
+###翻页
+示例：逗号` <`和句号` >`翻页。
+
+1. 打开 ` default.custom.yaml`，修改 `key_binder/bindings` 。
+
+2. 如下所示。
+
+```
+   key_binder/bindings: # 翻页  minus/减号，equal/等号，comma/逗号，period/句号，exclam/感叹号，numbersign/井号，percent/百分号，semicolon/分号，apostrophe/单引号
+    - { when: composing, accept: ISO_Left_Tab, send: Page_Up }  # "tab"翻页
+    - { when: composing, accept: Shift+Tab, send: Page_Up }
+    - { when: composing, accept: Tab, send: Page_Down }     
+    - { when: paging, accept: minus, send: Page_Up }            # "-"上一页
+    - { when: has_menu, accept: equal, send: Page_Down }        # "="下一页
+    - { when: paging, accept: comma, send: Page_Up }            # "<"上一页
+    - { when: has_menu, accept: period, send: Page_Down }       # ">"下一页
+```
+###皮肤
+示例：荧光` yingguang`皮肤。
+
+1. 打开 ` weasel.custom.yaml`，修改 `style/color_scheme` 后面的皮肤名为 `yingguang` 。
+
+2. 如下所示。
+
+```
+patch:
+  "us_keyboard_layot": true
+  "style/display_tray_icon": true
+  "style/horizontal": true                    # 水平排列
+  "style/inline_preedit": true                # 单行显示，false双行显示
+  #"style/font_face": "PingFangSC"            # 候选词编号字体 显示不对
+  "style/font_face": "Microsoft YaHei"        # 不是很喜欢雅黑但没办法
+  "style/font_point": 13                      # 候选文字大小
+  #"style/label_font_point": 10               # 候选编号大小 不生效，想必跟鼠须管不同的原因
+  "style/layout/candidate_format": "%c\u2005%@"      # 用 1/6 em 空格 U+2005 来控制编号 %c 和候选词 %@ 前后的空间
+  "style/layout/border_height": 2             # 窗口上下高度
+  "style/layout/border_width": 2              # 窗口左右宽度
+  "style/layout/border_color_width": 0        # 输入条边框宽度
+  "style/laout/corner_radius": 5              # 候选条圆角
+  "style/layout/hilited_corner_radius": 5     # 高亮圆角
+  # 修改后面的名字更换皮肤
+  "style/color_scheme": yingguang             # 荧光 
+```
+
+详细方案参考：[这里](https://github.com/maomiui/rime) 或者 [这里](https://xinlu.ink/tech/rime.html) (翻页参考)
