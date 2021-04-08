@@ -1,1 +1,1 @@
-# rime_theme
+# rime皮肤
